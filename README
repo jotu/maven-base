@@ -1,0 +1,30 @@
+"Standard" Maven setup for Java projects.
+Consists of 3 modules that configures different aspects of the Maven build. The parent/pom.xml is the pom to use a parent in most 
+cases.
+
+build-tools
+-----------
+Contains configuration files for different code quality tools;
+ * Checkstyle
+ * Findbugs
+ * PMD
+
+build-config
+------------
+Configures the Maven "lifecycle", sets versions of plugins to use and configures the code quality tools to run in the Maven 
+lifecycle. The checking plugins configured are:
+ * Checkstyle
+ * Findbugs
+ * PMD
+ * Cobertura
+ 
+It contains the JDK version to use and the encoding to use for java and resource files.
+It also defines a profile "fast.install" that can be used to perform a fast install of a module. The profile will skip compilation 
+of test sources, skip PMD check, skip Checkstyle checks and Cobertura checks.
+This pom can be used as a parent pom if we want to have separate configurations and checks for different modules.
+This is also the place to lock dependency [verions] that we want in the project.
+
+parent
+------
+This is the pom to be used as parent in most cases. In addition to the build-configuration (which it has parent) it will verify 
+which Maven version is used to build.
