@@ -241,7 +241,10 @@
     </profile>
   </profiles>
 
-
+  <dependencyManagement>
+    <dependencies>
+    </dependencies>
+  </dependencyManagement>
   <properties>
     <build.number />
     <maven.version>[3.0.1,)</maven.version>
